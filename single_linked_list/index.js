@@ -59,6 +59,22 @@ class SinglyLinkedList {
         }     
         return current;
     }
+
+    // shift: removing a new node from the beginning of LL
+    // if there are no nodes, return undefined
+    // store the current head in a temp variable
+    // set the new head property to the current.next
+    shift(){
+        if(!this.head) return undefined;
+        let current_head = this.head;
+        this.head = current_head.next;
+        this.length--;
+        if(this.length === 0) {
+            this.tail = null;
+        }   
+        return current_head;
+    }
+
 }
 
 var list = new SinglyLinkedList();
