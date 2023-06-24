@@ -75,6 +75,21 @@ class SinglyLinkedList {
         return current_head;
     }
 
+    // unshift: adding a new node to the beginning of LL
+    // accepts a value -> create a new node with new val
+    // if there is no head value, set the head and tail to the newly created node
+    // otherwise set the newly created node's next to be the current head property
+    unshift(val){
+        let newNode = new Node(val);
+        if(!this.head){
+            this.head = newNode;
+            this.tail = this.head;
+         }
+         newNode.next = this.head;
+         this.head = newNode;
+         this.length++;
+         return this;
+    }
 }
 
 var list = new SinglyLinkedList();
