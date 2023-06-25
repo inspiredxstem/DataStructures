@@ -84,11 +84,29 @@ class SinglyLinkedList {
         if(!this.head){
             this.head = newNode;
             this.tail = this.head;
+         } else {
+            newNode.next = this.head;
+            this.head = newNode;
          }
-         newNode.next = this.head;
-         this.head = newNode;
          this.length++;
          return this;
+    }
+
+
+    // get: retrieve a node by its' position in a LL
+    // function should accept an index
+    // if index is < than 0 or > than or equal to the length of the LL, return null
+    // loop through the list until we reach the index and return the node at the specific index
+    // use a counter variable
+    get(index){
+        if(index < 0 || index >= this.length) return null;
+        let counter = 0;
+        let current = this.head;
+        while(counter !== index){
+            current = current.next;
+            counter++;
+        }
+        return current;
     }
 }
 
