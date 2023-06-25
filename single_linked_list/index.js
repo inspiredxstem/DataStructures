@@ -144,6 +144,25 @@ class SinglyLinkedList {
         this.length++;
         return true;
     }
+
+    // remove: remove a node at a specific position
+    // if index is less than or greater than the length, return undefined
+    // if index is the same as lenght-1, pop
+    // if index is 0, shift
+    // otherwise, use the get method, access the node at the index - 1
+    // set the next property on that node to be the next of the next node
+    // decrement the length
+    remove(index){
+        if(index < 0 || index >= this.length) return undefined;
+        if(index === this.length - 1) return this.pop(); // remove the last item
+        if(index === 0) return this.shift(); // remove the first node
+        let previousNode = this.get(index - 1);
+        let removedNode = previousNode.next;
+        previousNode.next = removedNode.next;
+        this.length--;
+
+        return removedNode;
+    }
 }
 
 var list = new SinglyLinkedList();
