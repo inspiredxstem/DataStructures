@@ -106,7 +106,21 @@ class SinglyLinkedList {
             current = current.next;
             counter++;
         }
-        return current;
+        return current; 
+    }
+
+    // set: change the value of a node based on its' position in a LL
+    // accepts an index and a value
+    // use the get function to find the node
+    // if node not found, return false
+    // if found, set the value of that node to be the value passed and return true
+    set(index, val){
+        let foundNode = this.get(index);
+        if(foundNode){
+            foundNode.val = val;
+            return true;
+        }
+        return false;
     }
 }
 
