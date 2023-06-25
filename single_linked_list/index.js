@@ -163,8 +163,48 @@ class SinglyLinkedList {
 
         return removedNode;
     }
+
+    // reverse: reverse the linked list IN PLACE (do not make a copy/duplicate)
+    // swap the head and tail
+    // create a variable called next and previous
+    // create a varaible called current node and initialize it to the head property
+    // loop through the list
+    // set next variable to be the next property on whatever the node variable is
+    // set the next property on the node to be whatever previous is
+    // set previous to be the value of the node variable
+    // set the node variable to be the value of the next variable
+    reverse(){
+        var node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+        let next;
+        // we want previous to be null because the tail.next must be null
+        let previous = null;
+        for(let i = 0; i < this.length; i++){
+            next = node.next;
+            node.next = previous;
+            previous = node;
+            node = next;
+        }
+        return this;
+    }
+
+    
+    print(){
+        let arr = [];
+        let current = this.head;
+        while(current){
+            arr.push(current.val);
+            current = current.next;
+        }
+        console.log(arr)
+    }
 }
 
+
 var list = new SinglyLinkedList();
-list.push("Hello")
-list.push("Goodbye")
+list.push(100)
+list.push(200)
+list.push(300)
+list.push(400)
+list.push(500)
