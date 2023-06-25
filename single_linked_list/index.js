@@ -122,6 +122,28 @@ class SinglyLinkedList {
         }
         return false;
     }
+
+    // insert: adding a node to the LL at a specific position
+    // accepts an index and a value
+    // if index is < than or > than the length, return false
+    // if index is equal to the length, push a new node to the end of the LL
+    // if index is 0, unshift a new node to the start of the list
+    // use the get method, access the node at the index - 1
+    // set the next property on the node to be the new node
+    // set the next property on the new node to be the previous next
+    // increment the length
+    insert(index, val){
+        if(index < 0 || index > this.length) return false;
+        if(index === this.length) return !!this.push(val);
+        if(index === 0) return !!this.unshift(val);
+        let newNode = new Node(val);
+        let prev = this.get(index - 1);
+        let temp = prev.next;
+        prev.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return true;
+    }
 }
 
 var list = new SinglyLinkedList();
