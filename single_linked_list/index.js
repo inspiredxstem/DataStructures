@@ -8,6 +8,13 @@ class Node {
     }
 }
 
+// Big O of Singly Linked List
+// Insertion: O(1)
+// Removal: either O(1) or O(n)
+// Search: O(n)
+// Access: O(n)
+
+
 class SinglyLinkedList {
     constructor(){
         //has a pointer to the head
